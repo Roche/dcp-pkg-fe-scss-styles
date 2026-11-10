@@ -1,0 +1,53 @@
+@use '../abstracts/variables' as *;
+
+// Body Text
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    // color: $dark-color; // Assuming a default text color, can be adjusted if needed
+}
+
+// Paragraphs
+p {
+    margin-bottom: $spacer; // Spacing between paragraphs
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+}
+
+// Links
+a {
+    color: var(--dcp-branding-primary-color, #{$primary-color});
+    text-decoration: none;
+    transition: color $transition-fast;
+  
+    &:hover {
+        color: var(--dcp-branding-primary-color, #{$primary-color});
+        text-decoration: underline;
+    }
+}
+
+// Lists (ul, ol)
+ul, ol {
+    margin-bottom: $spacer;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+}
+
+li {
+    margin-bottom: $spacer-half; // Adjust for spacing between list items
+}
+
+// Small Text
+small {
+    font-size: 0.875rem; // Smaller text for footnotes or inline text
+}
+
+// Blockquote
+blockquote {
+    font-style: italic;
+    border-left: 4px solid var(--dcp-branding-primary-color, #{$primary-color});
+    padding-left: $spacer;
+    margin: $spacer-double 0;
+    color: $secondary-color;
+}

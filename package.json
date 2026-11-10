@@ -1,0 +1,48 @@
+{
+  "name": "@open-dcp/styles",
+  "version": "0.1.26",
+  "main": "dist/index.css",
+  "style": "dist/index.css",
+  "exports": {
+    ".": {
+      "import": "./dist/index.css",
+      "default": "./dist/index.css"
+    },
+    "./scss": {
+      "import": "./src/index.scss",
+      "default": "./src/index.scss"
+    },
+    "./scss/variables": {
+      "import": "./src/abstracts/variables.scss",
+      "default": "./src/abstracts/variables.scss"
+    },
+    "./src/abstracts/variables": {
+      "import": "./src/abstracts/_variables.scss",
+      "default": "./src/abstracts/_variables.scss"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "chokidar 'src/**/*.scss' -c 'npm run build'",
+    "dev:win": "chokidar 'src/**/*.scss' -c 'npm run build:win'",
+    "build": "sass --no-source-map src/index.scss dist/index.css && cp src/index.scss dist/index.scss",
+    "build:win": "sass --no-source-map src/index.scss dist/index.css && copy src\\index.scss dist\\index.scss"
+  },
+  "dependencies": {
+    "sass": "^1.83.0"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Roche/dcp-pkg-fe-scss-styles.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

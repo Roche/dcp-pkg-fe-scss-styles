@@ -1,0 +1,29 @@
+/* Set specific rules for block-level elements */
+html, body {
+    height: 100%;
+}
+
+/* Make sure that images are responsive and don't overflow their container */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Prevent list markers from appearing as default */
+ol, ul {
+    list-style: none;
+}
+
+/* Ensure consistent table styling */
+table {
+    border-collapse: collapse; /* Collapses borders */
+    border-spacing: 0;         /* Removes space between table cells */
+}
+
+.dc_content {
+    position: relative;
+    height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    padding-left: calc(var(--main-padding) + 3rem)!important;
+    padding-right: calc(var(--main-padding) + 3rem)!important;
+}

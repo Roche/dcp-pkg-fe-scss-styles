@@ -1,0 +1,21 @@
+@use '../abstracts/variables';
+
+.dcp-text-primary {
+    color: var(--dcp-branding-primary-color, #{variables.$primary-color});
+}
+
+.dcp-bg-primary {
+    background-color: var(--dcp-branding-primary-color, #{variables.$primary-color});
+}
+
+.dcp-text-secondary {
+    color: variables.$secondary-color;
+}
+
+.dcp-bg-secondary {
+    background-color: variables.$secondary-color;
+}
+
+.dcp-bg-transparent {
+    background-color: transparent;
+}

@@ -1,0 +1,56 @@
+$scrollbar-color: var(--dcp-scrollbar-color, color-mix(in srgb, var(--dcp-branding-primary-color, #2855d2) 80%, black));
+
+.dcp-app-wrapper * {
+    @supports not selector(::-webkit-scrollbar) {
+        scrollbar-width: thin;
+        scrollbar-color:
+            $scrollbar-color
+            transparent;
+    }
+
+    @supports selector(::-webkit-scrollbar) {
+        // Non-auto standard properties override WebKit scrollbar styling in Chrome.
+        scrollbar-width: auto;
+        scrollbar-color: auto;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-button {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        &::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: none;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: transparent;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: $scrollbar-color;
+            -webkit-box-shadow: inset 0 0 6px $scrollbar-color;
+        }
+
+        &::-webkit-scrollbar-thumb:window-inactive {
+            background: $scrollbar-color;
+        }
+    }
+}
+
+body {
+    --v-theme-overlay-multiplier: 1;
+}

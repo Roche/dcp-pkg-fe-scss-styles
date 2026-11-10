@@ -1,0 +1,149 @@
+// --------------------------------------------------
+// Colors
+// --------------------------------------------------
+$branding-primary-color: #0066cc !default;
+$branding-secondary-color: #0981fa !default;
+
+// --------------------------------------------------
+// Runtime theme (no rebuild needed)
+// --------------------------------------------------
+// The base app reads runtime settings (globalThis.__DCP_ENV__.THEME) and sets
+// these CSS custom properties on :root:
+//   --dcp-branding-primary-color  (THEME.PRIMARY_COLOR)
+//   --dcp-branding-primary-light  (lighter variant of the primary color)
+//   --dcp-branding-primary-subtle (pale tint of the primary color)
+//   --dcp-background-color        (THEME.BACKGROUND_COLOR)
+// Use the functions below instead of the plain SCSS colors wherever the value
+// should follow the runtime theme. When no runtime value is set, the fallback
+// (= current build-time color) is used, so nothing changes visually.
+// NOTE: the result is a CSS var() string, not a Sass color, so it cannot be
+// passed to Sass color functions (darken, rgba, mat.define-palette, ...).
+// Use color-mix() in CSS instead.
+@function runtime-primary($fallback: $branding-primary-color) {
+  @return var(--dcp-branding-primary-color, #{$fallback});
+}
+
+@function runtime-primary-light($fallback) {
+  @return var(--dcp-branding-primary-light, #{$fallback});
+}
+
+// Pale tint of the primary color (base app: color-mix(primary 25%, white)),
+// for hover/active/inactive backgrounds such as chips or inactive toggles.
+@function runtime-primary-subtle($fallback) {
+  @return var(--dcp-branding-primary-subtle, #{$fallback});
+}
+
+@function runtime-background($fallback) {
+  @return var(--dcp-background-color, #{$fallback});
+}
+
+// Same color as runtime-primary() with transparency, e.g. for ripples/overlays.
+@function runtime-primary-alpha($alpha, $fallback: $branding-primary-color) {
+  @return color-mix(in srgb, runtime-primary($fallback) #{$alpha * 100%}, transparent);
+}
+
+$primary-color: #007bff !default; // Blue
+$secondary-color: #6c757d !default; // Gray
+$success-color: #28a745 !default; // Green
+$danger-color: #dc3545 !default; // Red
+$warning-color: #ffc107 !default; // Yellow
+$info-color: #17a2b8 !default; // Teal
+$light-color: #f8f9fa !default; // Light Gray
+$dark-color: #343a40 !default; // Dark Gray
+$light-blue: #73ABE3 !default; // Light Gray
+$lighter-blue: #D0E3F5 !default; // Light Gray
+
+$gxp-green: #59bd9b;
+$gxp-red: #D93A63;
+
+$white: #ffffff; // White
+$black: #000000; // Black
+
+// Input and Background Colors
+$disabled-color: #e0e0e0 !default; // Light gray for disabled states
+$input-background: #f5f5f5 !default; // Light gray for default input background
+$input-background-focus: #ffffff !default; // White background for focused input
+$input-background-error: #ffebee !default; // Light red background for error state
+
+// Text Colors
+$text-color-light: #666666 !default; // Light text color for labels
+$text-color-disabled: #aaa !default; // Disabled text color for labels and inputs
+$text-color-dark: #343a40 !default; // Dark text color for normal input and label text
+
+// Border Colors
+$border-color: #ccc !default; // Default border color for inputs
+$border-focus-color: #007bff !default; // Border color for focused inputs
+$border-error-color: #dc3545 !default; // Red border color for error state
+
+// Error and Success States
+$error-color: #dc3545 !default; // Red for error messages and focus states
+$success-color-light: #d4edda !default; // Light green background for success messages
+
+// Other Colors
+$placeholder-color: #aaa !default; // Placeholder text color for input fields
+$shadow-focus: 0 0 5px rgba(0, 123, 255, 0.5) !default; // Focus shadow for input
+
+// --------------------------------------------------
+// Typography
+// --------------------------------------------------
+$font-family-base: 'DcpFont', sans-serif !default;
+$font-size-base: .9rem !default; // Base font size
+$font-size-lg: 1.25rem !default; // Large font size
+$font-size-sm: 0.875rem !default; // Small font size
+$line-height-base: 1.5 !default; // Base line height
+
+// --------------------------------------------------
+// Spacing
+// --------------------------------------------------
+$spacer: 1rem !default; // Base unit for spacing
+$spacer-half: calc($spacer / 2) !default;
+$spacer-double: calc($spacer * 2) !default;
+
+// --------------------------------------------------
+// Breakpoints
+// --------------------------------------------------
+$breakpoint-sm: 576px !default; // Small devices
+$breakpoint-md: 768px !default; // Medium devices
+$breakpoint-lg: 992px !default; // Large devices
+$breakpoint-xl: 1200px !default; // Extra large devices
+
+// --------------------------------------------------
+// Z-Index
+// --------------------------------------------------
+$z-index-dropdown: 1000 !default; // Dropdown menus
+$z-index-modal: 1050 !default; // Modals
+$z-index-tooltip: 1070 !default; // Tooltips
+
+// --------------------------------------------------
+// Transitions
+// --------------------------------------------------
+$transition-fast: 0.2s ease-in-out !default; // Fast transition
+$transition-base: 0.3s ease-in-out !default; // Base transition
+$transition-slow: 0.5s ease-in-out !default; // Slow transition
+
+// --------------------------------------------------
+// Components
+// --------------------------------------------------
+// Modal
+$modal-border-radius: 4px !default;
+
+// Button Customization
+$button-padding: 0.5rem 1rem !default;
+$button-border-radius: 0.25rem !default;
+$button-font-size: 1rem !default;
+$button-primary-bg: $branding-primary-color !default;
+$button-primary-color: $white !default;
+$button-secondary-bg: $secondary-color !default;
+$button-secondary-color: $white !default;
+$button-disabled-bg: $light-color !default;
+$button-disabled-color: $text-color-disabled !default; // Define the disabled text color
+
+// Dropdown Customization
+$dropdown-bg: $white !default; // Background color for the dropdown
+$dropdown-border: 1px solid $light-color !default; // Border color for the dropdown
+$dropdown-border-radius: $button-border-radius !default; // Border radius from button (consistent with button)
+$dropdown-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !default; // Shadow for dropdown
+$dropdown-item-hover-bg: $light-color !default; // Background color for item hover in the dropdown
+
+// Disabled Text Color
+$text-color-disabled: #a0a0a0 !default;
