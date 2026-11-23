@@ -42,7 +42,7 @@ $branding-secondary-color: #0981fa !default;
   @return color-mix(in srgb, runtime-primary($fallback) #{$alpha * 100%}, transparent);
 }
 
-$primary-color: #007bff !default; // Blue
+$primary-color: #007bff !default; // Blue (legacy default, kept for visual compatibility)
 $secondary-color: #6c757d !default; // Gray
 $success-color: #28a745 !default; // Green
 $danger-color: #dc3545 !default; // Red
@@ -50,14 +50,14 @@ $warning-color: #ffc107 !default; // Yellow
 $info-color: #17a2b8 !default; // Teal
 $light-color: #f8f9fa !default; // Light Gray
 $dark-color: #343a40 !default; // Dark Gray
-$light-blue: #73ABE3 !default; // Light Gray
-$lighter-blue: #D0E3F5 !default; // Light Gray
+$light-blue: #73ABE3 !default; // Light Blue
+$lighter-blue: #D0E3F5 !default; // Lighter Blue
 
-$gxp-green: #59bd9b;
-$gxp-red: #D93A63;
+$gxp-green: #59bd9b !default;
+$gxp-red: #D93A63 !default;
 
-$white: #ffffff; // White
-$black: #000000; // Black
+$white: #ffffff !default; // White
+$black: #000000 !default; // Black
 
 // Input and Background Colors
 $disabled-color: #e0e0e0 !default; // Light gray for disabled states
@@ -145,5 +145,7 @@ $dropdown-border-radius: $button-border-radius !default; // Border radius from b
 $dropdown-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !default; // Shadow for dropdown
 $dropdown-item-hover-bg: $light-color !default; // Background color for item hover in the dropdown
 
-// Disabled Text Color
-$text-color-disabled: #a0a0a0 !default;
+// Scrollbar
+// Base color for the scrollbar thumb when --dcp-branding-primary-color is not set
+// (mixed 80% with black → #2044a8). Override to align with your branding.
+$scrollbar-base-color: #2855d2 !default;

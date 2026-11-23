@@ -1,4 +1,6 @@
-$scrollbar-color: var(--dcp-scrollbar-color, color-mix(in srgb, var(--dcp-branding-primary-color, #2855d2) 80%, black));
+@use '../abstracts/variables';
+
+$scrollbar-color: var(--dcp-scrollbar-color, color-mix(in srgb, #{variables.runtime-primary(variables.$scrollbar-base-color)} 80%, black));
 
 .dcp-app-wrapper * {
     @supports not selector(::-webkit-scrollbar) {
@@ -29,20 +31,17 @@ $scrollbar-color: var(--dcp-scrollbar-color, color-mix(in srgb, var(--dcp-brandi
             background: transparent;
         }
 
-        /* Track */
+        // Track
         &::-webkit-scrollbar-track {
-            -webkit-box-shadow: none;
-            -webkit-border-radius: 10px;
             border-radius: 10px;
             background: transparent;
         }
 
-        /* Handle */
+        // Handle
         &::-webkit-scrollbar-thumb {
-            -webkit-border-radius: 10px;
             border-radius: 10px;
             background: $scrollbar-color;
-            -webkit-box-shadow: inset 0 0 6px $scrollbar-color;
+            box-shadow: inset 0 0 6px $scrollbar-color;
         }
 
         &::-webkit-scrollbar-thumb:window-inactive {

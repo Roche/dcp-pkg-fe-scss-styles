@@ -25,3 +25,11 @@
 .dcp-animate-slide-up {
     animation: dcp-slide-up 0.5s ease-in-out;
 }
+
+// Respect the user's OS setting to reduce motion: elements appear in their
+// final state immediately instead of fading or sliding in.
+@media (prefers-reduced-motion: reduce) {
+    .dcp-animate-slide-up {
+        animation: none;
+    }
+}
